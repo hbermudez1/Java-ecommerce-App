@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body>
+
+<ui:composition template="/layouts/CommonLayout.xhtml">
+<ui:define name="title">JSF Login Page</ui:define>
+<ui:define name="content">
+	<div align="center">
+	
+		<img src="https://img.clipartlook.com/15-toilet-paper-clipart-free-cliparts-that-you-can-download-to-you-toilet-paper-clipart-300_244.jpg"></img>
+	            	<h:messages />
+
+
+<div class="container login-container">
+            <div class="row">
+                <div class="col-md-6 login-form-1">
+                    <h3>Login</h3>
+                    <form>
+                        <div class="form-group">
+                            Username: <h:inputText id="j_username" autocomplete="off"/>
+                        </div>
+                        <div class="form-group">
+                            Password: <h:inputSecret id="j_password" autococmplete="off" />
+			
+                        </div>
+                        <div class="form-group">   
+                            <h:commandButton type="submit" value="Submit"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6 login-form-2">
+                    <h3>Register</h3>
+                    <h:form>
+                        <div class="form-group">
+                            <h:outputLabel for="username">Username:</h:outputLabel>
+							<h:inputText id="username" class="form-control" value="#{user.username}" required="true"
+								requiredMessage="Username is required" />
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel for="password">Password:</h:outputLabel>
+		<h:inputText id="password" class="form-control" value="#{user.password}" required="true"
+			requiredMessage="Password is required" />
+                        </div>
+                        <div class="form-group">
+		<h:outputLabel for="firstName">First Name:</h:outputLabel>
+		<h:inputText id="firstName" class="form-control" value="#{user.firstName}" required="true"
+			requiredMessage="Firstname is required" />
+                        </div>
+                         <div class="form-group">
+		<h:outputLabel for="lastName">Last Name:</h:outputLabel>
+		<h:inputText id="lastName" class="form-control" value="#{user.lastName}" required="true"
+			requiredMessage="Lastname is required" />
+                        </div>
+                        <div class="form-group">
+                            		<h:commandButton id="submit-button" class="btnSubmit" value="Register"
+								action="#{userController.onRegister(user)}" />
+                        </div>
+			
+			
+                    </h:form>
+                </div>
+            </div>
+
+        </div>
+
+	
+	
+
+	</div>
+	</ui:define>
+	</ui:composition>
+	
+</h:body>
+</html>

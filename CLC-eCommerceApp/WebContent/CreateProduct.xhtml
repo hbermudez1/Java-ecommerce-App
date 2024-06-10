@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body>
+
+<ui:composition template="/layouts/CommonLayout2.xhtml">
+<ui:define name="title">Create Product</ui:define>
+<ui:define name="content">
+<br></br>
+	<div align="center">
+	<h:messages />
+	                <div class="col-md-6 login-form-1">
+                    <h3>Create Product</h3>
+                    <h:form>
+                        <div class="form-group">
+                            Name: <h:inputText type="text" class="form-control" placeholder="Name *" value="#{product.name}" required="true"
+			requiredMessage="Name is required" />
+                        </div>
+                        <div class="form-group">
+                            Description: <h:inputText type="text" class="form-control" placeholder="Description *" value="#{product.description}" required="true"
+			requiredMessage="Description is required" />
+                        </div>
+                        
+                        <div class="form-group">
+                            Price: <h:inputText type="number" class="form-control" placeholder="Price *" value="#{product.price}" required="true"
+			requiredMessage="Price is required" />
+                        </div>
+                        
+                        <div class="form-group">
+                            Quantity: <h:inputText type="number" class="form-control" placeholder="Quantity *" value="#{product.quantity}" required="true"
+			requiredMessage="Quantity is required" />
+                        </div>
+                        
+                        
+                        
+                        <div class="form-group">   
+                            <h:commandButton class="btnSubmit" id="submit-button" value="Submit"
+			action="#{productController.createProduct(product)}" />
+                        </div>
+                    </h:form>
+                </div>
+	</div>
+	<br></br>
+	</ui:define>
+	</ui:composition>
+	
+</h:body>
+</html>

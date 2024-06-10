@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body>
+
+<ui:composition template="/layouts/CommonLayout2.xhtml">
+<ui:define name="title">View All Products</ui:define>
+<ui:define name="content">
+	<br></br>
+	<h3>List Of all Products</h3>
+	<h:messages></h:messages>
+	<div style="background-color: white; width:80%">
+  <h:dataTable value="#{productController.service.products}"
+               var="p" styleClass = "table"
+   headerClass = "thead-dark">  
+   						<h:column scope="col">
+						<f:facet name="header">Name</f:facet>
+						#{p.name}
+						</h:column>
+											
+						<h:column>
+						<f:facet name="header">Description</f:facet>
+						#{p.description}
+						
+						</h:column>
+						
+						<h:column>
+						<f:facet name="header">Price</f:facet>
+						#{p.price}
+						</h:column>
+						
+						<h:column>
+						<f:facet name="header">Quantity</f:facet>
+						#{p.quantity}
+						</h:column>
+						
+						<h:column>
+						<f:facet name="header">View Product</f:facet>
+							<h:form>
+								<h:commandButton class="btnSubmit" id="submit-button" value="View"
+											action="#{productController.ViewProduct(p)}" />
+							</h:form>
+						</h:column>
+						
+						<h:column>
+						<f:facet name="header">Delete Product</f:facet>
+							<h:form>
+								<h:commandButton class="btnSubmit" id="submit-button" value="Delete"
+											action="#{productController.deleteProduct(p)}" />
+							</h:form>
+						</h:column>
+						
+						<h:column>
+						<f:facet name="header">Update Product</f:facet>
+							<h:form>
+								<h:commandButton class="btnSubmit" id="submit-button" value="Update"
+											action="#{productController.viewUpdateProduct(p)}" />
+							</h:form>
+						</h:column>
+						
+						
+  		</h:dataTable>
+  		</div>
+  		<br></br>
+
+  			</ui:define>
+	</ui:composition>
+	
+</h:body>
+</html>
